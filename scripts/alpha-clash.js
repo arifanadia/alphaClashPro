@@ -6,6 +6,28 @@
 //     playGroundSection.classList.remove('hidden')
 // }
 
+
+function handleKeyboardKeyUpEvent(event) {
+    const playerPressed = event.key;
+    console.log(playerPressed);
+
+    const currentAlphabetElement = document.getElementById('current-alphabet');
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+
+    if (playerPressed === expectedAlphabet) {
+        console.log('you get a point');
+        removeBackgroundColorById(expectedAlphabet);
+        continueGame()
+    }
+    else{
+        console.log('you misssed:you lost a life');
+    }
+
+
+}
+document.addEventListener('keyup', handleKeyboardKeyUpEvent);
+
 function continueGame() {
 
     const alpha = getARandomAlphabet();
@@ -19,7 +41,7 @@ function continueGame() {
 
 }
 
-function play(){
+function play() {
     hideElementId('home-screen');
     showElementId('play-ground')
     continueGame();

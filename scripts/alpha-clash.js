@@ -17,11 +17,30 @@ function handleKeyboardKeyUpEvent(event) {
 
     if (playerPressed === expectedAlphabet) {
         console.log('you get a point');
+
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScoreText = currentScoreElement.innerText;
+        const currentScore = parseInt(currentScoreText);
+
+        const newScore = currentScore + 1;
+
+        currentScoreElement.innerText = newScore;
+
+
         removeBackgroundColorById(expectedAlphabet);
         continueGame()
     }
-    else{
+    else {
         console.log('you misssed:you lost a life');
+
+        const currentLifeElement = document.getElementById('current-life');
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText);
+
+        const newLife = currentLife - 1;
+
+        currentLifeElement.innerText = newLife;
+
     }
 
 
